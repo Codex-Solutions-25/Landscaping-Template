@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GreenScape | Professional Landscaping Solutions</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#2C5530',secondary:'#7AB800'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Open Sans', sans-serif;
+}
+h1, h2, h3, h4, h5, h6 {
+font-family: 'Montserrat', sans-serif;
+}
+.service-card:hover {
+transform: translateY(-8px);
+box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+input:focus {
+outline: none;
+}
+.testimonial-card {
+transition: all 0.3s ease;
+}
+.testimonial-card.active {
+transform: scale(1.05);
+}
+.custom-checkbox {
+position: relative;
+display: inline-block;
+width: 20px;
+height: 20px;
+margin-right: 8px;
+}
+.custom-checkbox input {
+opacity: 0;
+width: 0;
+height: 0;
+}
+.checkmark {
+position: absolute;
+top: 0;
+left: 0;
+height: 20px;
+width: 20px;
+background-color: #fff;
+border: 2px solid #ddd;
+border-radius: 4px;
+}
+.custom-checkbox input:checked ~ .checkmark {
+background-color: #2C5530;
+border-color: #2C5530;
+}
+.checkmark:after {
+content: "";
+position: absolute;
+display: none;
+}
+.custom-checkbox input:checked ~ .checkmark:after {
+display: block;
+}
+.custom-checkbox .checkmark:after {
+left: 6px;
+top: 2px;
+width: 5px;
+height: 10px;
+border: solid white;
+border-width: 0 2px 2px 0;
+transform: rotate(45deg);
+}
+</style>
+</head>
+<body class="bg-white">
+<!-- Navigation -->
+<nav class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
+<div class="container mx-auto px-6 py-4 flex items-center justify-between">
+<a href="#" class="text-3xl font-['Pacifico'] text-primary">logo</a>
+<div class="hidden md:flex items-center space-x-8">
+<a href="#" id="home-link" class="text-gray-700 hover:text-primary font-medium transition-colors">Home</a>
+<a href="#services" class="text-gray-700 hover:text-primary font-medium transition-colors">Services</a>
+<a href="#portfolio" class="text-gray-700 hover:text-primary font-medium transition-colors">Portfolio</a>
+<a href="#testimonials" class="text-gray-700 hover:text-primary font-medium transition-colors">Testimonials</a>
+<a href="#contact" class="text-gray-700 hover:text-primary font-medium transition-colors">Contact</a>
+</div>
+<a href="#quote" class="hidden md:block bg-primary text-white px-6 py-2 !rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap">Get Free Quote</a>
+<button class="md:hidden w-10 h-10 flex items-center justify-center text-gray-700" id="mobile-menu-button">
+<i class="ri-menu-line ri-lg"></i>
+</button>
+</div>
+<!-- Mobile Menu -->
+<div class="md:hidden hidden bg-white absolute w-full shadow-lg" id="mobile-menu">
+<div class="container mx-auto px-6 py-3 flex flex-col space-y-4">
+<a href="#" class="text-gray-700 hover:text-primary font-medium py-2 transition-colors">Home</a>
+<a href="#services" class="text-gray-700 hover:text-primary font-medium py-2 transition-colors">Services</a>
+<a href="#portfolio" class="text-gray-700 hover:text-primary font-medium py-2 transition-colors">Portfolio</a>
+<a href="#testimonials" class="text-gray-700 hover:text-primary font-medium py-2 transition-colors">Testimonials</a>
+<a href="#contact" class="text-gray-700 hover:text-primary font-medium py-2 transition-colors">Contact</a>
+<a href="#quote" class="bg-primary text-white px-6 py-2 !rounded-button font-medium hover:bg-opacity-90 transition-colors text-center whitespace-nowrap">Get Free Quote</a>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="w-full h-screen relative pt-16 overflow-hidden" style="background-image: url('https://readdy.ai/api/search-image?query=A%20stunning%2C%20professionally%20landscaped%20garden%20with%20lush%20green%20grass%2C%20vibrant%20flower%20beds%2C%20stone%20pathways%2C%20and%20well-maintained%20shrubs.%20The%20scene%20should%20have%20perfect%20lighting%20with%20soft%20natural%20sunlight%2C%20creating%20gentle%20shadows.%20The%20garden%20should%20look%20immaculate%20with%20a%20beautiful%20house%20partially%20visible%20in%20the%20background.%20The%20image%20should%20have%20a%20natural%2C%20realistic%20style%20with%20high%20detail%20and%20sharpness.&width=1920&height=1080&seq=landscaping1&orientation=landscape'); background-size: cover; background-position: center;">
+<div class="absolute inset-0 bg-gradient-to-r from-black/70 to-black/30"></div>
+<div class="container mx-auto px-6 h-full flex items-center relative z-10">
+<div class="max-w-2xl">
+<h1 class="text-5xl md:text-6xl font-bold text-white leading-tight mb-6">Transform Your Outdoor Space</h1>
+<p class="text-xl text-white/90 mb-8">Professional Landscaping Solutions for Your Dream Garden</p>
+<div class="flex flex-col sm:flex-row gap-4">
+<a href="#quote" class="bg-secondary text-white px-8 py-3 !rounded-button font-medium hover:bg-opacity-90 transition-colors text-center whitespace-nowrap">Get Free Quote</a>
+<a href="#services" class="bg-white text-primary px-8 py-3 !rounded-button font-medium hover:bg-opacity-90 transition-colors text-center whitespace-nowrap">Our Services</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Preview -->
+<section id="services" class="py-20 bg-gray-50">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-bold text-gray-800 mb-4">Our Landscaping Services</h2>
+<p class="text-lg text-gray-600 max-w-2xl mx-auto">We offer comprehensive landscaping solutions tailored to your unique needs and vision.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Service 1 -->
+<div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300">
+<div class="h-60 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=A%20close-up%20view%20of%20a%20professional%20landscape%20designer%20creating%20a%20detailed%20garden%20plan.%20The%20image%20shows%20hands%20working%20on%20a%20blueprint%20with%20various%20garden%20elements%2C%20plant%20selections%2C%20and%20layout%20designs.%20The%20scene%20includes%20drawing%20tools%2C%20plant%20reference%20books%2C%20and%20material%20samples.%20The%20lighting%20is%20bright%20and%20clear%2C%20highlighting%20the%20intricate%20details%20of%20the%20design%20work.%20The%20style%20is%20realistic%20with%20professional%20quality.&width=600&height=400&seq=landscaping2&orientation=landscape" alt="Garden Design" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+<i class="ri-plant-line ri-lg text-primary"></i>
+</div>
+<h3 class="text-xl font-bold text-gray-800 mb-3">Garden Design</h3>
+<p class="text-gray-600 mb-4">Our expert designers create beautiful, functional outdoor spaces tailored to your style and needs, transforming your vision into reality.</p>
+<a href="#" class="text-primary font-medium flex items-center">
+Learn more
+<i class="ri-arrow-right-line ml-2"></i>
+</a>
+</div>
+</div>
+<!-- Service 2 -->
+<div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300">
+<div class="h-60 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=A%20professional%20landscaping%20maintenance%20scene%20showing%20a%20gardener%20carefully%20pruning%20plants%20in%20a%20well-maintained%20garden.%20The%20image%20captures%20the%20precision%20and%20care%20involved%20in%20garden%20maintenance%2C%20with%20tools%20like%20pruning%20shears%20and%20other%20gardening%20equipment%20visible.%20The%20garden%20looks%20healthy%20and%20vibrant%20with%20various%20plants%20and%20flowers.%20The%20lighting%20is%20natural%20daylight%2C%20creating%20a%20bright%2C%20clear%20image%20with%20good%20contrast.%20The%20style%20is%20realistic%20and%20professional.&width=600&height=400&seq=landscaping3&orientation=landscape" alt="Maintenance" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+<i class="ri-scissors-cut-line ri-lg text-primary"></i>
+</div>
+<h3 class="text-xl font-bold text-gray-800 mb-3">Maintenance</h3>
+<p class="text-gray-600 mb-4">Keep your landscape looking its best year-round with our comprehensive maintenance services, including pruning, mowing, and seasonal care.</p>
+<a href="#" class="text-primary font-medium flex items-center">
+Learn more
+<i class="ri-arrow-right-line ml-2"></i>
+</a>
+</div>
+</div>
+<!-- Service 3 -->
+<div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300">
+<div class="h-60 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=A%20detailed%20view%20of%20hardscaping%20work%20in%20progress%2C%20showing%20the%20installation%20of%20stone%20pavers%20for%20a%20garden%20pathway%20or%20patio.%20The%20image%20captures%20skilled%20workers%20carefully%20placing%20and%20aligning%20natural%20stone%20materials.%20Tools%20like%20levels%2C%20mallets%2C%20and%20measuring%20equipment%20are%20visible.%20The%20surrounding%20area%20shows%20partially%20completed%20hardscape%20elements%20like%20retaining%20walls%20or%20water%20features.%20The%20lighting%20is%20natural%20daylight%20with%20clear%20visibility%20of%20textures%20and%20materials.%20The%20style%20is%20realistic%20and%20professional.&width=600&height=400&seq=landscaping4&orientation=landscape" alt="Hardscaping" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+<i class="ri-brick-wall-line ri-lg text-primary"></i>
+</div>
+<h3 class="text-xl font-bold text-gray-800 mb-3">Hardscaping</h3>
+<p class="text-gray-600 mb-4">Enhance your outdoor living with custom patios, walkways, retaining walls, and other hardscape features built with quality materials and craftsmanship.</p>
+<a href="#" class="text-primary font-medium flex items-center">
+Learn more
+<i class="ri-arrow-right-line ml-2"></i>
+</a>
+</div>
+</div>
+</div>
+<div class="text-center mt-12">
+<a href="#" class="bg-primary text-white px-8 py-3 !rounded-button font-medium hover:bg-opacity-90 transition-colors inline-block whitespace-nowrap">Explore Services</a>
+</div>
+</div>
+</section>
+<!-- Portfolio Section -->
+<section id="portfolio" class="py-20 bg-white">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-bold text-gray-800 mb-4">Our Recent Projects</h2>
+<p class="text-lg text-gray-600 max-w-2xl mx-auto">See the transformations we've created for our satisfied clients.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Project 1 -->
+<div class="overflow-hidden rounded-lg shadow-md group">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=A%20before%20and%20after%20comparison%20of%20a%20residential%20front%20yard%20landscaping%20transformation.%20The%20left%20side%20shows%20an%20unkempt%2C%20plain%20yard%20with%20patchy%20grass%20and%20minimal%20features.%20The%20right%20side%20shows%20the%20same%20area%20beautifully%20landscaped%20with%20colorful%20flower%20beds%2C%20shaped%20shrubs%2C%20a%20small%20tree%2C%20and%20a%20stone%20pathway.%20The%20lighting%20is%20bright%20and%20even%2C%20clearly%20showing%20the%20dramatic%20improvement.%20The%20style%20is%20realistic%20and%20professional.&width=600&height=400&seq=landscaping5&orientation=landscape" alt="Residential Transformation" class="w-full h-64 object-cover object-top transition-transform duration-500 group-hover:scale-105">
+<div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+<div class="p-6">
+<h3 class="text-xl font-bold text-white mb-2">Residential Transformation</h3>
+<p class="text-white/90">Complete front yard makeover with custom plantings and stonework</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="overflow-hidden rounded-lg shadow-md group">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=A%20before%20and%20after%20comparison%20of%20a%20backyard%20patio%20and%20garden%20area.%20The%20left%20side%20shows%20a%20plain%2C%20unused%20backyard%20space%20with%20basic%20grass.%20The%20right%20side%20shows%20a%20stunning%20transformation%20featuring%20a%20stone%20patio%20with%20outdoor%20furniture%2C%20a%20fire%20pit%2C%20surrounding%20garden%20beds%20with%20colorful%20plants%2C%20and%20landscape%20lighting.%20The%20lighting%20is%20natural%20daylight%2C%20clearly%20showing%20all%20details%20of%20the%20transformation.%20The%20style%20is%20realistic%20and%20professional.&width=600&height=400&seq=landscaping6&orientation=landscape" alt="Backyard Retreat" class="w-full h-64 object-cover object-top transition-transform duration-500 group-hover:scale-105">
+<div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+<div class="p-6">
+<h3 class="text-xl font-bold text-white mb-2">Backyard Retreat</h3>
+<p class="text-white/90">Custom patio design with fire pit and ambient lighting</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Project 3 -->
+<div class="overflow-hidden rounded-lg shadow-md group">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=A%20before%20and%20after%20comparison%20of%20a%20commercial%20property%20landscaping%20project.%20The%20left%20side%20shows%20a%20basic%2C%20uninspiring%20commercial%20building%20entrance%20with%20minimal%20landscaping.%20The%20right%20side%20shows%20the%20same%20area%20transformed%20with%20professional%20landscaping%20including%20shaped%20hedges%2C%20colorful%20seasonal%20plantings%2C%20decorative%20mulch%2C%20and%20small%20ornamental%20trees%20framing%20the%20entrance.%20The%20lighting%20is%20bright%20and%20even%2C%20clearly%20showing%20the%20professional%20improvement.%20The%20style%20is%20realistic%20and%20professional.&width=600&height=400&seq=landscaping7&orientation=landscape" alt="Commercial Property" class="w-full h-64 object-cover object-top transition-transform duration-500 group-hover:scale-105">
+<div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+<div class="p-6">
+<h3 class="text-xl font-bold text-white mb-2">Commercial Property</h3>
+<p class="text-white/90">Professional landscaping for business curb appeal</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Project 4 -->
+<div class="overflow-hidden rounded-lg shadow-md group">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=A%20before%20and%20after%20comparison%20of%20a%20water%20feature%20installation%20in%20a%20garden.%20The%20left%20side%20shows%20a%20plain%20section%20of%20a%20garden%20with%20just%20grass%20or%20simple%20plantings.%20The%20right%20side%20shows%20the%20same%20area%20transformed%20with%20a%20beautiful%20water%20feature%20such%20as%20a%20small%20pond%20with%20water%20lilies%2C%20surrounding%20rocks%2C%20and%20decorative%20plants.%20The%20lighting%20captures%20the%20sparkle%20of%20water%20and%20the%20lush%20surroundings.%20The%20style%20is%20realistic%20and%20professional.&width=600&height=400&seq=landscaping8&orientation=landscape" alt="Water Feature" class="w-full h-64 object-cover object-top transition-transform duration-500 group-hover:scale-105">
+<div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+<div class="p-6">
+<h3 class="text-xl font-bold text-white mb-2">Water Feature</h3>
+<p class="text-white/90">Custom pond with waterfall and surrounding plantings</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Project 5 -->
+<div class="overflow-hidden rounded-lg shadow-md group">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=A%20before%20and%20after%20comparison%20of%20a%20garden%20bed%20renovation.%20The%20left%20side%20shows%20overgrown%2C%20messy%2C%20or%20empty%20garden%20beds%20with%20weeds%20or%20dying%20plants.%20The%20right%20side%20shows%20the%20same%20area%20transformed%20with%20professionally%20designed%20garden%20beds%20featuring%20a%20variety%20of%20colorful%20perennials%2C%20ornamental%20grasses%2C%20and%20flowering%20shrubs%20arranged%20in%20an%20aesthetically%20pleasing%20design%20with%20fresh%20mulch.%20The%20lighting%20is%20bright%20natural%20daylight%20showing%20the%20vibrant%20colors.%20The%20style%20is%20realistic%20and%20professional.&width=600&height=400&seq=landscaping9&orientation=landscape" alt="Garden Renovation" class="w-full h-64 object-cover object-top transition-transform duration-500 group-hover:scale-105">
+<div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+<div class="p-6">
+<h3 class="text-xl font-bold text-white mb-2">Garden Renovation</h3>
+<p class="text-white/90">Revitalized garden beds with seasonal color and texture</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Project 6 -->
+<div class="overflow-hidden rounded-lg shadow-md group">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=A%20before%20and%20after%20comparison%20of%20an%20outdoor%20living%20space%20creation.%20The%20left%20side%20shows%20an%20unused%20or%20basic%20backyard%20area.%20The%20right%20side%20shows%20the%20same%20space%20transformed%20into%20a%20complete%20outdoor%20living%20area%20with%20a%20pergola%20or%20covered%20structure%2C%20outdoor%20kitchen%20or%20BBQ%20area%2C%20comfortable%20seating%2C%20and%20surrounding%20landscaping%20with%20plants%20and%20lighting.%20The%20lighting%20shows%20the%20space%20in%20golden%20hour%20light%20to%20highlight%20the%20inviting%20atmosphere.%20The%20style%20is%20realistic%20and%20professional.&width=600&height=400&seq=landscaping10&orientation=landscape" alt="Outdoor Living" class="w-full h-64 object-cover object-top transition-transform duration-500 group-hover:scale-105">
+<div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+<div class="p-6">
+<h3 class="text-xl font-bold text-white mb-2">Outdoor Living</h3>
+<p class="text-white/90">Complete outdoor kitchen and entertainment area</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="text-center mt-12">
+<a href="#" class="bg-primary text-white px-8 py-3 !rounded-button font-medium hover:bg-opacity-90 transition-colors inline-block whitespace-nowrap">View Our Work</a>
+</div>
+</div>
+</section>
+<!-- Statistics Section -->
+<section class="py-16 bg-primary text-white">
+<div class="container mx-auto px-6">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+<div>
+<div class="text-4xl font-bold mb-2">500+</div>
+<p class="text-white/80">Projects Completed</p>
+</div>
+<div>
+<div class="text-4xl font-bold mb-2">98%</div>
+<p class="text-white/80">Client Satisfaction</p>
+</div>
+<div>
+<div class="text-4xl font-bold mb-2">15+</div>
+<p class="text-white/80">Years Experience</p>
+</div>
+<div>
+<div class="text-4xl font-bold mb-2">24</div>
+<p class="text-white/80">Design Awards</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials Section -->
+<section id="testimonials" class="py-20 bg-gray-50">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-bold text-gray-800 mb-4">What Our Clients Say</h2>
+<p class="text-lg text-gray-600 max-w-2xl mx-auto">Hear from our satisfied customers about their experience working with us.</p>
+</div>
+<div class="relative">
+<div class="flex overflow-hidden" id="testimonial-container">
+<!-- Testimonial 1 -->
+<div class="testimonial-card min-w-full md:min-w-[33.333%] px-4 active" data-index="0">
+<div class="bg-white p-8 rounded-lg shadow-md">
+<div class="flex items-center mb-6">
+<div class="text-yellow-400 flex">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+</div>
+</div>
+<p class="text-gray-600 mb-6">"The team at GreenScape completely transformed our backyard into the outdoor oasis we've always dreamed of. Their attention to detail and creative vision exceeded our expectations. We couldn't be happier with the results!"</p><div class="flex items-center">
+<div class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mr-4">
+<i class="ri-user-line ri-lg text-gray-500"></i>
+</div>
+<div>
+<h4 class="font-bold text-gray-800">Emily Richardson</h4>
+<p class="text-gray-500 text-sm">Residential Client</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="testimonial-card min-w-full md:min-w-[33.333%] px-4" data-index="1">
+<div class="bg-white p-8 rounded-lg shadow-md">
+<div class="flex items-center mb-6">
+<div class="text-yellow-400 flex">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+</div>
+</div>
+<p class="text-gray-600 mb-6">"As a business owner, I needed a landscaping company that could maintain our property year-round and make a great first impression for our clients. GreenScape delivers exceptional service and our property has never looked better."</p>
+<div class="flex items-center">
+<div class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mr-4">
+<i class="ri-user-line ri-lg text-gray-500"></i>
+</div>
+<div>
+<h4 class="font-bold text-gray-800">Michael Thompson</h4>
+<p class="text-gray-500 text-sm">Commercial Client</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Testimonial 3 -->
+<div class="testimonial-card min-w-full md:min-w-[33.333%] px-4" data-index="2">
+<div class="bg-white p-8 rounded-lg shadow-md">
+<div class="flex items-center mb-6">
+<div class="text-yellow-400 flex">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+</div>
+</div>
+<p class="text-gray-600 mb-6">"We hired GreenScape to redesign our front yard after a major renovation. Their team was professional, punctual, and the quality of their work was outstanding. The compliments from neighbors keep coming!"</p>
+<div class="flex items-center">
+<div class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mr-4">
+<i class="ri-user-line ri-lg text-gray-500"></i>
+</div>
+<div>
+<h4 class="font-bold text-gray-800">Jennifer and David Wilson</h4>
+<p class="text-gray-500 text-sm">Residential Clients</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Navigation Arrows -->
+<button class="absolute top-1/2 left-0 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-md flex items-center justify-center text-gray-700 hover:bg-gray-100 z-10" id="prev-testimonial">
+<i class="ri-arrow-left-s-line ri-lg"></i>
+</button>
+<button class="absolute top-1/2 right-0 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-md flex items-center justify-center text-gray-700 hover:bg-gray-100 z-10" id="next-testimonial">
+<i class="ri-arrow-right-s-line ri-lg"></i>
+</button>
+</div>
+<!-- Testimonial Indicators -->
+<div class="flex justify-center mt-8 space-x-2" id="testimonial-indicators">
+<button class="w-3 h-3 rounded-full bg-primary" data-index="0"></button>
+<button class="w-3 h-3 rounded-full bg-gray-300" data-index="1"></button>
+<button class="w-3 h-3 rounded-full bg-gray-300" data-index="2"></button>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section id="quote" class="py-20 relative" style="background-image: url('https://readdy.ai/api/search-image?query=A%20wide%20angle%20view%20of%20a%20beautiful%20garden%20landscape%20with%20soft%20focus.%20The%20image%20should%20show%20a%20well-designed%20garden%20with%20various%20elements%20like%20flowering%20plants%2C%20shrubs%2C%20trees%2C%20and%20hardscape%20features%20like%20pathways%20or%20stone%20elements.%20The%20lighting%20should%20be%20gentle%2C%20creating%20a%20dreamy%20atmosphere%20with%20soft%20shadows.%20The%20colors%20should%20be%20muted%20and%20harmonious%2C%20creating%20a%20peaceful%20backdrop.%20The%20image%20should%20be%20slightly%20blurred%20to%20serve%20as%20a%20perfect%20background%20for%20text%20overlay.&width=1920&height=600&seq=landscaping11&orientation=landscape'); background-size: cover; background-position: center;">
+<div class="absolute inset-0 bg-primary/80"></div>
+<div class="container mx-auto px-6 relative z-10">
+<div class="max-w-4xl mx-auto bg-white rounded-lg shadow-xl overflow-hidden">
+<div class="md:flex">
+<div class="md:w-1/2 p-8 md:p-12">
+<h2 class="text-3xl font-bold text-gray-800 mb-6">Get Your Free Quote</h2>
+<p class="text-gray-600 mb-8">Fill out the form and our team will get back to you within 24 hours with a customized quote for your project.</p>
+<form>
+<div class="mb-6">
+<label for="name" class="block text-gray-700 font-medium mb-2">Full Name</label>
+<input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary" placeholder="Your name">
+</div>
+<div class="mb-6">
+<label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
+<input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary" placeholder="Your email">
+</div>
+<div class="mb-6">
+<label for="phone" class="block text-gray-700 font-medium mb-2">Phone Number</label>
+<input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary" placeholder="Your phone">
+</div>
+<div class="mb-6">
+<label for="service" class="block text-gray-700 font-medium mb-2">Service Interested In</label>
+<div class="relative">
+<select id="service" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary appearance-none pr-8">
+<option value="" disabled selected>Select a service</option>
+<option value="design">Garden Design</option>
+<option value="maintenance">Maintenance</option>
+<option value="hardscaping">Hardscaping</option>
+<option value="irrigation">Irrigation Systems</option>
+<option value="lighting">Outdoor Lighting</option>
+</select>
+<div class="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
+<i class="ri-arrow-down-s-line text-gray-500"></i>
+</div>
+</div>
+</div>
+<div class="mb-6">
+<label class="flex items-center">
+<div class="custom-checkbox">
+<input type="checkbox" id="newsletter">
+<span class="checkmark"></span>
+</div>
+<span class="text-gray-700">Subscribe to our newsletter</span>
+</label>
+</div>
+<button type="submit" class="w-full bg-primary text-white py-3 !rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap">Submit Request</button>
+</form>
+</div>
+<div class="md:w-1/2 bg-gray-100 p-8 md:p-12 flex flex-col justify-between">
+<div>
+<h3 class="text-2xl font-bold text-gray-800 mb-6">Why Choose Us?</h3>
+<div class="space-y-4">
+<div class="flex items-start">
+<div class="w-8 h-8 bg-secondary/20 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+<i class="ri-check-line text-secondary"></i>
+</div>
+<div>
+<h4 class="font-bold text-gray-800 mb-1">Expert Design Team</h4>
+<p class="text-gray-600">Our certified designers create beautiful, functional landscapes.</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-8 h-8 bg-secondary/20 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+<i class="ri-check-line text-secondary"></i>
+</div>
+<div>
+<h4 class="font-bold text-gray-800 mb-1">Quality Materials</h4>
+<p class="text-gray-600">We use only premium plants and materials for lasting results.</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-8 h-8 bg-secondary/20 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+<i class="ri-check-line text-secondary"></i>
+</div>
+<div>
+<h4 class="font-bold text-gray-800 mb-1">Satisfaction Guarantee</h4>
+<p class="text-gray-600">We're not happy until you're completely satisfied with our work.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-8">
+<p class="text-gray-700 font-medium mb-2">Have questions? Contact us directly:</p>
+<div class="flex items-center mb-2">
+<i class="ri-phone-line mr-2 text-primary"></i>
+<span class="text-gray-700">(555) 123-4567</span>
+</div>
+<div class="flex items-center">
+<i class="ri-mail-line mr-2 text-primary"></i>
+<span class="text-gray-700">info@greenscape.com</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-gray-900 text-white pt-16 pb-8">
+<div class="container mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+<div>
+<a href="#" class="text-3xl font-['Pacifico'] text-white mb-6 inline-block">logo</a>
+<p class="text-gray-400 mb-6">Professional landscaping services to transform your outdoor space into a beautiful, functional extension of your home.</p>
+<div class="flex space-x-4">
+<a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+<i class="ri-facebook-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+<i class="ri-instagram-line"></i>
+</a>
+<a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+<i class="ri-twitter-x-line"></i>
+</a>
+<a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+<i class="ri-pinterest-line"></i>
+</a>
+</div>
+</div>
+<div>
+<h3 class="text-lg font-bold mb-6">Quick Links</h3>
+<ul class="space-y-3">
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+<li><a href="#services" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
+<li><a href="#portfolio" class="text-gray-400 hover:text-white transition-colors">Portfolio</a></li>
+<li><a href="#testimonials" class="text-gray-400 hover:text-white transition-colors">Testimonials</a></li>
+<li><a href="#quote" class="text-gray-400 hover:text-white transition-colors">Get a Quote</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-lg font-bold mb-6">Services</h3>
+<ul class="space-y-3">
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Garden Design</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Maintenance</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Hardscaping</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Irrigation Systems</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Outdoor Lighting</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-lg font-bold mb-6">Contact Us</h3>
+<ul class="space-y-3">
+<li class="flex items-start">
+<i class="ri-map-pin-line mr-3 mt-1"></i>
+<span class="text-gray-400">123 Landscape Drive<br>Garden City, NY 10001</span>
+</li>
+<li class="flex items-center">
+<i class="ri-phone-line mr-3"></i>
+<span class="text-gray-400">(555) 123-4567</span>
+</li>
+<li class="flex items-center">
+<i class="ri-mail-line mr-3"></i>
+<span class="text-gray-400">info@greenscape.com</span>
+</li>
+<li class="flex items-center">
+<i class="ri-time-line mr-3"></i>
+<span class="text-gray-400">Mon-Fri: 8am-6pm<br>Sat: 9am-4pm</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="pt-8 border-t border-gray-800">
+<div class="flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-500 mb-4 md:mb-0">© 2025 GreenScape Landscaping. All rights reserved.</p>
+<div class="flex items-center space-x-6">
+<a href="#" class="text-gray-500 hover:text-white transition-colors">Privacy Policy</a>
+<a href="#" class="text-gray-500 hover:text-white transition-colors">Terms of Service</a>
+<div class="flex items-center space-x-3">
+<i class="ri-visa-fill text-2xl text-gray-400"></i>
+<i class="ri-mastercard-fill text-2xl text-gray-400"></i>
+<i class="ri-paypal-fill text-2xl text-gray-400"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<script id="mobile-menu-script">
+document.addEventListener('DOMContentLoaded', function() {
+const mobileMenuButton = document.getElementById('mobile-menu-button');
+const mobileMenu = document.getElementById('mobile-menu');
+mobileMenuButton.addEventListener('click', function() {
+mobileMenu.classList.toggle('hidden');
+if (mobileMenu.classList.contains('hidden')) {
+mobileMenuButton.innerHTML = '<i class="ri-menu-line ri-lg"></i>';
+} else {
+mobileMenuButton.innerHTML = '<i class="ri-close-line ri-lg"></i>';
+}
+});
+// Close mobile menu when clicking on a link
+const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+mobileMenuLinks.forEach(link => {
+link.addEventListener('click', function() {
+mobileMenu.classList.add('hidden');
+mobileMenuButton.innerHTML = '<i class="ri-menu-line ri-lg"></i>';
+});
+});
+});
+</script>
+<script id="testimonial-carousel-script">
+document.addEventListener('DOMContentLoaded', function() {
+const container = document.getElementById('testimonial-container');
+const cards = document.querySelectorAll('.testimonial-card');
+const prevButton = document.getElementById('prev-testimonial');
+const nextButton = document.getElementById('next-testimonial');
+const indicators = document.getElementById('testimonial-indicators').querySelectorAll('button');
+let currentIndex = 0;
+const totalCards = cards.length;
+function updateCarousel() {
+const isMobile = window.innerWidth < 768;
+const slideWidth = isMobile ? 100 : 33.333;
+container.style.transition = 'transform 0.3s ease-in-out';
+container.style.transform = `translateX(-${currentIndex * slideWidth}%)`;
+// Update active card
+cards.forEach((card, index) => {
+if (index === currentIndex) {
+card.classList.add('active');
+} else {
+card.classList.remove('active');
+}
+});
+// Update indicators
+indicators.forEach((indicator, index) => {
+if (index === currentIndex) {
+indicator.classList.remove('bg-gray-300');
+indicator.classList.add('bg-primary');
+} else {
+indicator.classList.remove('bg-primary');
+indicator.classList.add('bg-gray-300');
+}
+});
+}
+function goToSlide(index) {
+const isMobile = window.innerWidth < 768;
+const maxIndex = isMobile ? totalCards - 1 : totalCards - 1;
+if (index < 0) {
+currentIndex = maxIndex;
+} else if (index > maxIndex) {
+currentIndex = 0;
+} else {
+currentIndex = index;
+}
+updateCarousel();
+}
+prevButton.addEventListener('click', () => {
+goToSlide(currentIndex - 1);
+});
+nextButton.addEventListener('click', () => {
+goToSlide(currentIndex + 1);
+});
+indicators.forEach((indicator, index) => {
+indicator.addEventListener('click', () => {
+goToSlide(index);
+});
+});
+// Auto slide
+let interval = setInterval(() => {
+goToSlide(currentIndex + 1);
+}, 5000);
+// Pause on hover
+container.addEventListener('mouseenter', () => {
+clearInterval(interval);
+});
+container.addEventListener('mouseleave', () => {
+interval = setInterval(() => {
+goToSlide(currentIndex + 1);
+}, 5000);
+});
+// Handle resize
+window.addEventListener('resize', updateCarousel);
+// Initialize
+updateCarousel();
+});
+</script>
+<script id="smooth-scroll-script">
+document.addEventListener('DOMContentLoaded', function() {
+const scrollLinks = document.querySelectorAll('a[href^="#"]');
+const homeLink = document.getElementById('home-link');
+scrollLinks.forEach(link => {
+link.addEventListener('click', function(e) {
+e.preventDefault();
+const targetId = this.getAttribute('href');
+if (targetId === '#' && this === homeLink) {
+window.scrollTo({
+top: 0,
+behavior: 'smooth'
+});
+return;
+}
+const targetElement = document.querySelector(targetId);
+if (targetElement) {
+const navHeight = document.querySelector('nav').offsetHeight;
+const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
+window.scrollTo({
+top: targetPosition,
+behavior: 'smooth'
+});
+}
+});
+});
+});
+</script>
+</body>
+</html>
